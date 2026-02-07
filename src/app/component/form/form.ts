@@ -10,11 +10,12 @@ import { CardModule } from 'primeng/card';
 import { FloatLabelModule } from 'primeng/floatlabel';
 import { InputTextModule } from 'primeng/inputtext';
 import { InputNumberModule } from 'primeng/inputnumber';
-// @ts-ignore: If type declarations are missing for CalendarModule, ignore the error.
 import { DatePicker } from 'primeng/datepicker';
 import { CheckboxModule } from 'primeng/checkbox';
 import { ButtonModule } from 'primeng/button';
 import { Employee } from '../../interface/employee.interface';
+import { Shared } from '../../service/shared';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-form',
@@ -35,7 +36,8 @@ import { Employee } from '../../interface/employee.interface';
 export class Form {
   employeeForm: FormGroup;
 
-  constructor(private fb: FormBuilder) {
+
+  constructor(private fb: FormBuilder,private sharedservice:Shared,private router:Router,private activedRouted:ActivatedRoute) {
     this.employeeForm = this.fb.group({
       employee_Name: ['', Validators.required],
       employee_Age: [null as number | null, Validators.required],
@@ -64,8 +66,20 @@ export class Form {
 
   onSubmit(): void {
     if (this.employeeForm.valid) {
-      const value = this.employeeForm.value as Partial<Employee>;
+      const value = this.employeeForm.value as Employee;
       console.log('Employee form value:', value);
+      this.sharedservice.postEmployeeList(value).subscribe({
+        next:(_resp:any)=>{
+          console.log(_resp);
+          this.router.navigate(['/dashboard'],{relativeTo:this.activedRouted});
+        },
+        error:(_error:Error)=>{
+          console.log(_error);
+        },
+        complete:()=>{
+          alert('Successfully Store Employee Details.....');
+        }
+      });
     } else {
       this.employeeForm.markAllAsTouched();
     }
