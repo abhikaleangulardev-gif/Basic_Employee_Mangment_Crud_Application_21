@@ -1,0 +1,30 @@
+/* PrimeNG p-card is a custom element; default display is inline, so w-100 has no effect */
+/* Center card on page and set max width */
+.backgroundImage{
+  background: url('../../../asset/3948.jpg');
+}
+p-card.employee-form-card {
+  display: block;
+  max-width: 1000px;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.employee-form p-button.submit-btn,
+.employee-form p-button.submit-btn .p-button,
+.employee-form p-button.submit-btn button {
+  display: block !important;
+  width: 100vh !important;
+  box-sizing: border-box !important;
+}
+
+/* Lighter card background (override PrimeNG dark theme) */
+:host ::ng-deep .employee-form-card .p-card,
+:host ::ng-deep .employee-form-card .p-card-body,
+:host ::ng-deep .employee-form-card .p-card-content,
+:host ::ng-deep .employee-form-card .p-card-header {
+  background-color: #171d25;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
