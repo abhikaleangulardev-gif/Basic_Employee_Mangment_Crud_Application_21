@@ -6,7 +6,7 @@ import { Employee } from '../interface/employee.interface';
   providedIn: 'root',
 })
 export class Shared {
-  myEmployeeApiUrl: string = 'https://employeemanagementapplic-5d8a5-default-rtdb.europe-west1.firebasedatabase.app/employeeData.json';
+  myEmployeeApiUrl: string = 'https://employeedetailsapplication-default-rtdb.firebaseio.com/employeeDetails.json';
 
   private http = inject(HttpClient);
 
