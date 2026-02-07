@@ -1,0 +1,261 @@
+<div class="backgroundImage">
+    <div class="container d-flex justify-content-center align-items-center min-vh-100 py-4">
+        <div class="row w-100 justify-content-center">
+          <div class="col-12">
+            <p-card header="Employee Form" subheader="Add or edit employee details" styleClass="employee-form-card">
+              <form class="employee-form" [formGroup]="employeeForm" (ngSubmit)="onSubmit()">
+                <!-- Row 1 - Employee Name full width -->
+                <div class="row my-4">
+                  <div class="col-sm-12">
+                    <p-floatlabel>
+                      <input
+                        id="employee_Name"
+                        type="text"
+                        pInputText
+                        formControlName="employee_Name"
+                        class="w-100"
+                        placeholder="Employee Name"
+                      />
+                      <label for="employee_Name">Employee Name</label>
+                    </p-floatlabel>
+                  </div>
+                </div>
+                <!-- Row 2 -->
+                <div class="row g-3 my-4">
+                  <div class="col-sm-6">
+                    <p-floatlabel>
+                      <p-inputnumber
+                        id="employee_Age"
+                        formControlName="employee_Age"
+                        [min]="18"
+                        [max]="65"
+                        placeholder="Age"
+                        styleClass="w-100"
+                        inputStyleClass="w-100"
+                      />
+                      <label for="employee_Age">Age</label>
+                    </p-floatlabel>
+                  </div>
+                  <div class="col-sm-6">
+                    <p-floatlabel>
+                      <p-datepicker
+                        id="employee_Date_of_Birth"
+                        formControlName="employee_Date_of_Birth"
+                        dateFormat="dd/mm/yy"
+                        [showIcon]="true"
+                        placeholder="Date of Birth"
+                        styleClass="w-100"
+                        inputStyleClass="w-100"
+                      />
+                      <label for="employee_Date_of_Birth">Date of Birth</label>
+                    </p-floatlabel>
+                  </div>
+                </div>
+                <!-- Row 3 -->
+                <div class="row g-3 my-4">
+                  <div class="col-sm-6">
+                    <p-floatlabel>
+                      <input
+                        id="employee_EmailId"
+                        type="email"
+                        pInputText
+                        formControlName="employee_EmailId"
+                        class="w-100"
+                        placeholder="Email Id"
+                      />
+                      <label for="employee_EmailId">Email Id</label>
+                    </p-floatlabel>
+                  </div>
+                  <div class="col-sm-6">
+                    <p-floatlabel>
+                      <input
+                        id="employee_Image"
+                        type="text"
+                        pInputText
+                        formControlName="employee_Image"
+                        class="w-100"
+                        placeholder="Image URL"
+                      />
+                      <label for="employee_Image">Employee Image (URL)</label>
+                    </p-floatlabel>
+                  </div>
+                </div>
+                <!-- Row 4 -->
+                <div class="row g-3 my-4">
+                  <div class="col-sm-6">
+                    <p-floatlabel>
+                      <p-inputnumber
+                        id="employee_Contact_Number"
+                        formControlName="employee_Contact_Number"
+                        [useGrouping]="false"
+                        placeholder="Contact Number"
+                        styleClass="w-100"
+                        inputStyleClass="w-100"
+                      />
+                      <label for="employee_Contact_Number">Contact Number</label>
+                    </p-floatlabel>
+                  </div>
+                  <div class="col-sm-6">
+                    <p-floatlabel>
+                      <input
+                        id="employee_Id_Number"
+                        type="text"
+                        pInputText
+                        formControlName="employee_Id_Number"
+                        class="w-100"
+                        placeholder="Id Number"
+                      />
+                      <label for="employee_Id_Number">Employee Id Number</label>
+                    </p-floatlabel>
+                  </div>
+                </div>
+                <!-- Row 5 -->
+                <div class="row g-3 my-4">
+                  <div class="col-sm-6">
+                    <p-floatlabel>
+                      <p-inputnumber
+                        id="employee_Salary_Package"
+                        formControlName="employee_Salary_Package"
+                        [min]="0"
+                        mode="currency"
+                        currency="INR"
+                        locale="en-IN"
+                        placeholder="Salary"
+                        styleClass="w-100"
+                        inputStyleClass="w-100"
+                      />
+                      <label for="employee_Salary_Package">Salary Package</label>
+                    </p-floatlabel>
+                  </div>
+                  <div class="col-sm-6">
+                    <p-floatlabel>
+                      <p-datepicker
+                        id="employee_Joining_Date"
+                        formControlName="employee_Joining_Date"
+                        dateFormat="dd/mm/yy"
+                        [showIcon]="true"
+                        placeholder="Joining Date"
+                        styleClass="w-100"
+                        inputStyleClass="w-100"
+                      />
+                      <label for="employee_Joining_Date">Joining Date</label>
+                    </p-floatlabel>
+                  </div>
+                </div>
+                <!-- Row 6 -->
+                <div class="row g-3 my-4">
+                  <div class="col-sm-6">
+                    <p-floatlabel>
+                      <p-datepicker
+                        id="employee_Leaving_Date"
+                        formControlName="employee_Leaving_Date"
+                        dateFormat="dd/mm/yy"
+                        [showIcon]="true"
+                        placeholder="Leaving Date (Optional)"
+                        styleClass="w-100"
+                        inputStyleClass="w-100"
+                      />
+                      <label for="employee_Leaving_Date">Leaving Date (Optional)</label>
+                    </p-floatlabel>
+                  </div>
+                  <div class="col-sm-6">
+                    <div class="d-flex align-items-center gap-2">
+                      <p-checkbox
+                        id="employee_Active"
+                        formControlName="employee_Active"
+                        [binary]="true"
+                        inputId="employee_Active"
+                      />
+                      <label for="employee_Active" class="mb-0">Employee Active</label>
+                    </div>
+                  </div>
+                </div>
+      
+                <!-- Address section -->
+                <h5 class="my-4">Address</h5>
+                <div formGroupName="employee_Address">
+                  <div class="row g-3 my-4">
+                    <div class="col-sm-6">
+                      <p-floatlabel>
+                        <input
+                          id="employee_City_Name"
+                          type="text"
+                          pInputText
+                          formControlName="employee_City_Name"
+                          class="w-100"
+                          placeholder="City Name"
+                        />
+                        <label for="employee_City_Name">City Name</label>
+                      </p-floatlabel>
+                    </div>
+                    <div class="col-sm-6">
+                      <p-floatlabel>
+                        <input
+                          id="employee_City_Taluka"
+                          type="text"
+                          pInputText
+                          formControlName="employee_City_Taluka"
+                          class="w-100"
+                          placeholder="Taluka"
+                        />
+                        <label for="employee_City_Taluka">Taluka</label>
+                      </p-floatlabel>
+                    </div>
+                  </div>
+                  <div class="row g-3 my-4">
+                    <div class="col-sm-6">
+                      <p-floatlabel>
+                        <input
+                          id="employee_City_Dist"
+                          type="text"
+                          pInputText
+                          formControlName="employee_City_Dist"
+                          class="w-100"
+                          placeholder="District"
+                        />
+                        <label for="employee_City_Dist">District</label>
+                      </p-floatlabel>
+                    </div>
+                    <div class="col-sm-6">
+                      <p-floatlabel>
+                        <input
+                          id="employee_City_State"
+                          type="text"
+                          pInputText
+                          formControlName="employee_City_State"
+                          class="w-100"
+                          placeholder="State"
+                        />
+                        <label for="employee_City_State">State</label>
+                      </p-floatlabel>
+                    </div>
+                  </div>
+                  <div class="row g-3 my-4">
+                    <div class="col-sm-6">
+                      <p-floatlabel>
+                        <p-inputnumber
+                          id="employee_City_Pin_Code"
+                          formControlName="employee_City_Pin_Code"
+                          [min]="100000"
+                          [max]="999999"
+                          [useGrouping]="false"
+                          placeholder="Pin Code"
+                          styleClass="w-100"
+                          inputStyleClass="w-100"
+                        />
+                        <label for="employee_City_Pin_Code">Pin Code</label>
+                      </p-floatlabel>
+                    </div>
+                  </div>
+                </div>
+      
+                <div>
+                  <p-button label="Submit" type="submit" styleClass="submit-btn" />
+                </div>
+              </form>
+            </p-card>
+          </div>
+        </div>
+      </div>
+</div>
+

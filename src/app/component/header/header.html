@@ -1,0 +1,16 @@
+<div class="card">
+  <p-menubar [ngStyle]="{'background-color': 'grey'}">
+    <ng-template #start>
+      <span class="header-title">Employee Dashboard</span>
+    </ng-template>
+    <ng-template #end>
+      <p-button
+        label="Logout"
+        icon="pi pi-sign-out"
+        severity="danger"
+        styleClass="logout-btn"
+        (onClick)="logout()"
+      />
+    </ng-template>
+  </p-menubar>
+</div>

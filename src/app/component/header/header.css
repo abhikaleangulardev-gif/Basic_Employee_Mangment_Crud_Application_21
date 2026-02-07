@@ -1,0 +1,44 @@
+.card {
+  display: flex;
+  justify-content: space-between;
+  margin: 0;
+}
+
+p-menubar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  /* background-color: grey; */
+  margin: 0;
+  padding: 20px;
+  color: aquamarine;
+  font-size: 20px;
+  width: 100%;
+}
+
+.header-title {
+  color: #ffffff;
+  font-size: 20px;
+  font-weight: 600;
+  margin-right: 1rem;
+}
+
+/* Logout button background – force so theme doesn’t override */
+:host ::ng-deep p-button.logout-btn button,
+:host ::ng-deep p-button.logout-btn .p-button,
+:host ::ng-deep .p-menubar-end .p-button,
+:host ::ng-deep .logout-btn.p-button {
+  background-color: #e74c3c !important;
+  border-color: #e74c3c !important;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+:host ::ng-deep p-button.logout-btn button:hover,
+:host ::ng-deep p-button.logout-btn .p-button:hover,
+:host ::ng-deep .p-menubar-end .p-button:hover,
+:host ::ng-deep .logout-btn.p-button:hover {
+  background-color: #c0392b !important;
+  border-color: #c0392b !important;
+  padding: 10px;
+}
